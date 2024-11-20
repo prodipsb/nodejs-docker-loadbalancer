@@ -4,11 +4,8 @@
 node >=20
 
 ### Instruction
-``` bash
+```bash
     npm install
 
-### Docker
-
-``` bash
     Run docker-compose up --build
 
