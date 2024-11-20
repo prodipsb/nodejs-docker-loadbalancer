@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        #smartwizard{
+            margin-top: 5pc;
+        }
+        .required{
+            color: red;
+        }
+        .error{
+            color: red;
+            font-size: medium;
+        }
+        input.error, textarea.error, select.error{
+            border: 1px solid red;
+        }
+        .tab-content{
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- SmartWizard html -->
+<div id="smartwizard">
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#step-1">
+            <div class="num">1</div>
+            Career Objective
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#step-2">
+            <span class="num">2</span>
+            Personal Information
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#step-3">
+            <span class="num">3</span>
+                Education & Training
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#step-4">
+            <span class="num">4</span>
+            Skill & Experience
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="#step-4">
+              <span class="num">5</span>
+              Others Information
+            </a>
+          </li>
+    </ul>
+ 
+    <div class="tab-content">
+        <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+            <form id="form-step-1">
+                <div class="form-group">
+                    <label for="career_objective">Career Objective <span class="required">*</span></label>
+                    <textarea name="career_objective" id="career_objective" class="form-control" rows="6"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fileInput">Profile Photo <span class="required">*</span></label>
+                    <input type="file"  name="user_avatar" id="fileInput" class="form-control" onchange="showMyImage(this)"/>
+                </div>
+                <!-- Add more fields as needed -->
+            </form>
+        </div>
+        <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+            <form id="form-step-2">
+                <div class="form-group">
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="text" id="email" name="email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone <span class="required">*</span></label>
+                    <input type="text" id="phone" name="phone" class="form-control" />
+                </div>
+                <!-- Add more fields as needed -->
+            </form>
+        </div>
+        <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+            <h2>Your Address</h2>
+                    <div id="form-step-2" role="form" data-toggle="validator">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea class="form-control" name="address" id="address" rows="3" placeholder="Write your address..." required></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+        </div>
+        <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+            <h2>Terms and Conditions</h2>
+                    <p>
+                        Terms and conditions: Keep your smile :)
+                    </p>
+                    <div id="form-step-3" role="form" data-toggle="validator">
+                        <div class="form-group">
+                            <label for="terms">I agree with the T&C</label>
+                            <input type="checkbox" id="terms" data-error="Please accept the Terms and Conditions" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+        </div>
+        <div id="step-5" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+            <h2>Terms and Conditions</h2>
+                    <p>
+                        Terms and conditions: Keep your smile :)
+                    </p>
+                    <div id="form-step-4" role="form" data-toggle="validator">
+                        <div class="form-group">
+                            <label for="terms">I agree with the T&C</label>
+                            <input type="checkbox" id="terms" data-error="Please accept the Terms and Conditions" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+ 
+    <!-- Include optional progressbar HTML -->
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</div> 
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+
+<script>
+
+    function onFinish(){
+        alert('Finish Button');
+    }
+
+    function onCancel(){
+        alert('Cancel Button');
+    }
+
+  $('#smartwizard').smartWizard({
+  selected: 0, // Initial selected step, 0 = first step
+  theme: 'dots', // theme for the wizard, related css need to include for other than default theme
+  justified: true, // Nav menu justification. true/false
+  autoAdjustHeight: true, // Automatically adjust content height
+  backButtonSupport: true, // Enable the back button support
+  enableUrlHash: true, // Enable selection of the step based on url hash
+  transition: {
+      animation: 'none', // Animation effect on navigation, none|fade|slideHorizontal|slideVertical|slideSwing|css(Animation CSS class also need to specify)
+      speed: '400', // Animation speed. Not used if animation is 'css'
+      easing: '', // Animation easing. Not supported without a jQuery easing plugin. Not used if animation is 'css'
+      prefixCss: '', // Only used if animation is 'css'. Animation CSS prefix
+      fwdShowCss: '', // Only used if animation is 'css'. Step show Animation CSS on forward direction
+      fwdHideCss: '', // Only used if animation is 'css'. Step hide Animation CSS on forward direction
+      bckShowCss: '', // Only used if animation is 'css'. Step show Animation CSS on backward direction
+      bckHideCss: '', // Only used if animation is 'css'. Step hide Animation CSS on backward direction
+  },
+  toolbar: {
+  //  position: 'bottom', // none|top|bottom|both
+ //   showNextButton: true, // show/hide a Next button
+ //   showPreviousButton: true, // show/hide a Previous button
+  //  position: 'both', // none|top|bottom|both
+    extraHtml: `<button class="btn sw-btn" type="button" onclick="onFinish()">Finish</button>
+                <button class="btn sw-btn" onclick="onCancel()">Cancel</button>`
+  },
+  anchor: {
+      enableNavigation: true, // Enable/Disable anchor navigation 
+      enableNavigationAlways: false, // Activates all anchors clickable always
+      enableDoneState: true, // Add done state on visited steps
+      markPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
+      unDoneOnBackNavigation: false, // While navigate back, done state will be cleared
+      enableDoneStateNavigation: true // Enable/Disable the done state navigation
+  },
+  keyboard: {
+      keyNavigation: true, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+      keyLeft: [37], // Left key code
+      keyRight: [39] // Right key code
+  },
+  lang: { // Language variables for button
+      next: 'Next',
+      previous: 'Previous'
+  },
+  disabledSteps: [], // Array Steps disabled
+  errorSteps: [], // Array Steps error
+  warningSteps: [], // Array Steps warning
+  hiddenSteps: [], // Hidden steps
+  getContent: null // Callback function for content loading
+});
+
+
+$("#form-step-1").validate({
+        rules: {
+            career_objective: {
+                required: true,
+                minlength: 3
+            },
+            // user_avatar: {
+            //     required: true,
+            // },
+            
+        },
+        messages: {
+            career_objective: {
+                required: "Please enter your career objective",
+                minlength: "Your name must consist of at least 3 characters"
+            },
+            // user_avatar: {
+            //     required: "Please upload your phofile photo",
+            // }
+        },
+        errorPlacement: function(error, element) {
+            error.insertAfter(element);
+        }
+    });
+
+    $("#form-step-2").validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 3
+            },
+            email: {
+                required: true,
+                minlength: 3
+            },
+            phone: {
+                required: true,
+                minlength: 11
+            }
+        },
+        messages: {
+            name: {
+                required: "Please enter your name",
+                minlength: "Your name must enter your full name"
+            },
+            email: {
+                required: "Please enter your email",
+                minlength: "Your name enter a valid email"
+            },
+            phone: {
+                required: "Please enter your phone number",
+                minlength: "Your name must enter a valid phone number with country code"
+            }
+        },
+        errorPlacement: function(error, element) {
+            error.insertAfter(element);
+        }
+    });
+
+     // Before going to the next step, validate the form
+     $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+        console.log('stepNumbers', stepNumber)
+        console.log('stepDirection', stepDirection)
+        // if (stepDirection === 'forward') {
+            var form = $("#form-step-" + (stepNumber + 1));
+            console.log('form', form)
+            console.log('form.valid()', form.valid())
+            if (form.length > 0) {
+                form.validate().settings.ignore = ":disabled,:hidden";
+                if(form.valid()){
+                    console.log('Form is valid')
+                }else{
+                    console.log('Form is invalid')
+                }
+                return form.valid();
+            }
+        // }
+        return true;
+    });
+
+</script>
+</body>
+</html>
